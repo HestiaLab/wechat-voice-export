@@ -1,0 +1,30 @@
+#include <winver.h>
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     @WECHATVOICEEXPORT_VERSION_MAJOR@,@WECHATVOICEEXPORT_VERSION_MINOR@,@WECHATVOICEEXPORT_VERSION_PATCH@,0
+PRODUCTVERSION  @WECHATVOICEEXPORT_VERSION_MAJOR@,@WECHATVOICEEXPORT_VERSION_MINOR@,@WECHATVOICEEXPORT_VERSION_PATCH@,0
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       0
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName", "WeChatVoiceExport contributors"
+            VALUE "FileDescription", "WeChat favorited voice exporter"
+            VALUE "FileVersion", "@PROJECT_VERSION@"
+            VALUE "InternalName", "wxvoice"
+            VALUE "LegalCopyright", "Copyright (c) 2026 WeChatVoiceExport contributors"
+            VALUE "OriginalFilename", "wxvoice.exe"
+            VALUE "ProductName", "WeChatVoiceExport"
+            VALUE "ProductVersion", "@PROJECT_VERSION@"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 0x04E4
+    END
+END

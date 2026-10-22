@@ -1,0 +1,14 @@
+#ifndef WECHATVOICEEXPORT_EXPORT_H
+#define WECHATVOICEEXPORT_EXPORT_H
+
+#if defined(_WIN32) && defined(WECHATVOICEEXPORT_SHARED)
+#if defined(WECHATVOICEEXPORT_BUILDING_LIBRARY)
+#define WECHATVOICEEXPORT_API __declspec(dllexport)
+#else
+#define WECHATVOICEEXPORT_API __declspec(dllimport)
+#endif
+#else
+#define WECHATVOICEEXPORT_API
+#endif
+
+#endif /* WECHATVOICEEXPORT_EXPORT_H */
