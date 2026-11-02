@@ -6,6 +6,19 @@ WeChat 收藏语音导出工具（wxvoice）
 `Weixin.exe` 进程内存中已解密的 SILK 载荷，再解码为 PCM；全程不联网、不注入
 进程、不写内存转储、不修改微信数据。
 
+Exports favorited WeChat 4.x voice messages to WAV/MP3 on Windows via read-only process-memory capture — no injection, no memory dump, no network.
+
+`v0.1.0` · Windows x64 · 只读内存捕获 · MIT · 2026-10-22
+
+[![CI](https://github.com/HestiaLab/wechat-voice-export/actions/workflows/ci.yml/badge.svg)](https://github.com/HestiaLab/wechat-voice-export/actions/workflows/ci.yml)
+[![Static Analysis](https://github.com/HestiaLab/wechat-voice-export/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/HestiaLab/wechat-voice-export/actions/workflows/static-analysis.yml)
+[![Release](https://img.shields.io/github/v/release/HestiaLab/wechat-voice-export)](https://github.com/HestiaLab/wechat-voice-export/releases/tag/v0.1.0)
+[![License](https://img.shields.io/github/license/HestiaLab/wechat-voice-export)](LICENSE)
+
+[下载 v0.1.0](https://github.com/HestiaLab/wechat-voice-export/releases/tag/v0.1.0) · [使用指南](docs/guides/usage.md) · [安全策略](SECURITY.md) · [许可](LICENSE)
+
+> **运行门槛**：微信 4.x（`Weixin.exe`）· Windows x64 · 需先在微信中播放目标语音 · 不需管理员权限 · 输出目录不得位于数据根内 · 真实内存捕获未在 CI/本机验证。
+
 Quick Start
 -----------
 
@@ -18,6 +31,17 @@ build\ninja-release\bin\wxvoice.exe export 1 --out "D:\微信语音导出" --mp3
 
 在 `export` 前，请先在微信中打开并播放目标收藏语音。构建前提、完整参数、候选
 规则与退出码见 [使用指南](docs/guides/usage.md)。
+
+已验证的构建与 CLI 行为（Windows 11 · CMake 4.3.3 · Ninja 1.13.2 · GCC 16.2.0）：
+
+```console
+$ ./build/ninja-debug/bin/wxvoice.exe --version
+wxvoice 0.1.0
+$ ctest --preset ninja-debug --output-on-failure
+100% tests passed, 0 tests failed out of 12
+```
+
+真实 `list`/`export`、内存捕获与多进程合并未在本机验证；本 README 不展示真实微信数据。
 
 开始之前必读
 -------------
@@ -48,6 +72,7 @@ Who Are You?
 - 编码风格：[编码约定](docs/guides/coding-style.md)
 - 测试与质量门禁：[测试指南](docs/guides/testing.md)
 - 需求规格：[需求文档](docs/requirements.md)
+
 安全与维护者
 ------------
 
